@@ -1,0 +1,25 @@
+.todo-filter {
+    color: Black;
+    padding: 0 1rem;
+}
+
+.todo-filter__control {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.todo-filter label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.todo-filter select {
+    font: inherit;
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    border-radius: 6px;
+}
