@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './App.css';
 import Todos from "./components/todo/todos";
 import NewTodo from "./components/Newtodo/NewTodo";
+import Users from "./components/users/users";
 
 const dummy_todo = [
     {
@@ -18,7 +19,7 @@ const dummy_todo = [
     }
 ]
 const App = () => {
-
+    const [loggedIn, setLoggedIn] = useState(false)
     const [todos, setTodos] = useState(dummy_todo)
     const addTodoHandler = (todos) => {
         setTodos((previousTodos) => {
@@ -28,8 +29,12 @@ const App = () => {
 
     return (
         <div className="App">
-            <NewTodo onAddTodo={addTodoHandler}></NewTodo>
-            <Todos todo={todos}></Todos>
+            <Users loggedIn={setLoggedIn}></Users>
+            {loggedIn === false && <Todos todo={todos}></Todos>}
+            {loggedIn === true && <div>
+                <NewTodo onAddTodo={addTodoHandler}></NewTodo>
+                <Todos todo={todos}></Todos>
+            </div>}
         </div>
     )
 }
