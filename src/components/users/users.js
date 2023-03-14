@@ -16,13 +16,17 @@ const Users = (props) => {
                 }
             ]
         })
-        props.loggedIn(true)
+    }
+
+    const logOutHandler = () => {
+        props.loggedIn(false)
     }
 
     return (
         <div>
             <AddUser onAddUser={onAddUserHandler}></AddUser>
-            <UserList users={users}></UserList>
+            <UserList users={users} loggedIn={props.loggedIn}></UserList>
+            {users.length > 0 && <button onClick={logOutHandler}>Log out</button>}
         </div>
     )
 }
